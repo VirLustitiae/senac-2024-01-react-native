@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Desafio } from './src/componets/Desafio';
 import { Exe1 } from './src/componets/Exe1';
 import { Exe2 } from './src/componets/Exe2';
 import { Exe3 } from './src/componets/Exe3';
@@ -13,8 +14,9 @@ export default function App() {
       {/* <Exe2 /> */}
       {/* <Exe3 /> */}
       {/* <Exe4 /> */}
-      <Exe5 />
+      {/* <Exe5 /> */}
       {/* <StatusBar style="auto" /> */}
+      <Desafio />
     </View>
   );
 }
