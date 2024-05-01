@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import axios from 'axios'
 
 export default function App() {
   const [gato, setGato] = useState({})
@@ -21,16 +22,28 @@ export default function App() {
     //   .catch(erro => console.log("ERROR: ", erro))
 
     //EXIBIR A IMAGE DO GATINHO AO CLICAR NO BOTAO
-    fetch("https://api.thecatapi.com/v1/images/search")
-      .then(resp => resp.json())
-      .then(dados => {
-        setGato(dados[0])
-      })
-      .catch(err => console.log(err))
+    // fetch("https://api.thecatapi.com/v1/images/search")
+    //   .then(resp => resp.json())
+    //   .then(dados => {
+    //     setGato(dados[0])
+    //   })
+    //   .catch(err => console.log(err))
 
-    const dados = await fetch("https://api.thecatapi.com/v1/images/search")
-    const gatinho = await dados.json()
-    console.log("gatinho: ",gatinho[0].url)
+    // try{
+    //   const dados = await fetch("https://api.thecatapi.com/v1/images/search")
+    //   const gatinho = await dados.json()
+    // } catch(err) {
+    //   console.log(err)
+    // }
+    // console.log("gatinho: ",gatinho[0].url)
+
+    try {
+      const {data} = await axios.get('https://api.thecatapi.com/v1/images/search')
+      console.log("axios: ", data)
+      setGato(data[0])
+    } catch(err) {
+    //   console.log(err)
+    }
   }
 
   useEffect(() => {
