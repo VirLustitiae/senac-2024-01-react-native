@@ -4,12 +4,18 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { getAllTasks, storeTask } from './src/services/todoServices';
 import Routes from './src/routes';
 import { NavigationContainer } from '@react-navigation/native';
+import MyContextProvider from './src/context/my-context';
+import ThemeContextProvider from './src/context/theme-context';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Routes/>    
-    </NavigationContainer>
+    <ThemeContextProvider>
+      <MyContextProvider>
+        <NavigationContainer>
+          <Routes/>    
+        </NavigationContainer>
+      </MyContextProvider>
+    </ThemeContextProvider>
   )
 }
 

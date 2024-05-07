@@ -1,9 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { View, Text, FlatList } from "react-native";
+import { MyContext } from "../context/my-context";
+import { ThemeContext } from '../context/theme-context'
 import { getAllTasks } from "../services/todoServices";
 
 export default function AllTasks() {
     const [allTasks, setAllTasks] = useState([]);
+    const myCtx = useContext(MyContext);
+    const themeCtx = useContext(ThemeContext)
+
+    console.log(myCtx)
+    console.log(themeCtx)
 
     useEffect(() => {
         const fetch = async () => {
