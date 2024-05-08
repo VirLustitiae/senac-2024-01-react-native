@@ -25,10 +25,11 @@ Layout Agradável
 - Página Contendo os Integrantes do Grupo
 
 ### Bônus:
-Monitoramento de conexão a internet - Caso o dispositivo não tenha acesso a internet, exibir a informação
-Splash Screen com Animação de entrada no aplicativo
-Salvar os produtos no banco de dados e permitir que sejam visualizados quando o dispositivo estiver offline
-Página para criação de pedido.
+- Campo de pesquisa para filtrar os produtos exibidos
+- Página para criação de pedido.
+- Splash Screen com Animação de entrada no aplicativo
+- Monitoramento de conexão a internet - Caso o dispositivo não tenha acesso a internet, exibir a informação
+- Salvar os produtos no banco de dados e permitir que sejam visualizados quando o dispositivo estiver offline
 
 ### Divisão dos Grupos
 
