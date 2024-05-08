@@ -15,11 +15,11 @@ export const storeTask = async (taskData) => {
     }
 }
 
-export const getAllTasks = async () => {
+export const getAllTasks = async (token) => {
     
     try {
         const tasks = []
-        const response = await api.get('/tasks.json')
+        const response = await api.get(`/tasks?key=${token}.json`)
 
         for(key in response.data) {
             const task = {

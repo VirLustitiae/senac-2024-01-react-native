@@ -9,15 +9,15 @@ export default function AllTasks() {
     const myCtx = useContext(MyContext);
     const themeCtx = useContext(ThemeContext)
 
-    console.log(myCtx)
-    console.log(themeCtx)
+    // console.log(myCtx)
+    // console.log(themeCtx)
 
     useEffect(() => {
         const fetch = async () => {
-            console.log("USEEFFECT")
+            // console.log("USEEFFECT")
             const data = await getAllTasks()
             setAllTasks(data)
-            console.log(data)
+            // console.log(data)
         }
         fetch();
     }, [])
