@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Text, Button, View, StyleSheet } from "react-native";
+import { AuthContext } from "../context/auth-context";
 import { ThemeContext } from "../context/theme-context";
 import { createUser, login } from "../services/auth";
 import { deleteTask, storeTask, updateTasks } from "../services/todoServices";
 
 export default function NewTask() {
     const { setDarkMode, setLightMode, isDark } = useContext(ThemeContext)
+    const { token } = useContext(AuthContext)
 
     return (
         <View style={[styles.container, isDark && styles.darkContainer]}>
@@ -20,7 +22,7 @@ export default function NewTask() {
                     title: "Estudar React Native",
                     description: "Alguma descrição",
                     priority: "alta"
-                })}
+                }, token)}
             />
             <Button
                 title="UPDATE"

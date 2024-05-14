@@ -6,9 +6,9 @@ import api from "./api"
 //     priority: "alta"
 // }
 
-export const storeTask = async (taskData) => {
+export const storeTask = async (taskData, token) => {
     try {
-        const response = await api.post('/tasks.json', taskData)
+        const response = await api.post(`/tasks.json?auth=${token}`, taskData)
         console.log(response.data.name)
     } catch (err) {
         console.log(err)
@@ -19,7 +19,7 @@ export const getAllTasks = async (token) => {
     
     try {
         const tasks = []
-        const response = await api.get(`/tasks?key=${token}.json`)
+        const response = await api.get(`/tasks.json?auth=${token}`)
 
         for(key in response.data) {
             const task = {

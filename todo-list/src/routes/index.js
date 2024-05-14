@@ -1,14 +1,16 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/auth-context";
 import RotasPrivadas from "./RotasPrivadas";
 import RotasPublicas from "./RotasPublicas";
 
 export default function Routes() {
-    const estaLogado = false;
+    const authCtx = useContext(AuthContext)
 
     return (
         <>
             {/* { !estaLogado && <RotasPublicas />}
             { estaLogado && <RotasPrivadas />} */}
-            {estaLogado ? <RotasPrivadas /> : <RotasPublicas />}
+            {authCtx.isAuthenticated ? <RotasPrivadas /> : <RotasPublicas />}
         </>
     )
 }

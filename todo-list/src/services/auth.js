@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const API_KEY = 'AIzaSyBJpDd7W17b1kG3b8NoO3XjQoq7rKnMVDo';
+const API_KEY = process.env.EXPO_PUBLIC_API_KEY;
 
-const URL_API = 'https://identitytoolkit.googleapis.com/v1/accounts:'
+const URL_API = process.env.EXPO_PUBLIC_API_URL;
            
 const authenticate = async (mode, email, password) => {
     try {
@@ -11,10 +11,9 @@ const authenticate = async (mode, email, password) => {
             password: password,
             returnSecureToken: true
         })
-        console.log(response.data)
         return response.data.idToken
     } catch(err) {
-        console.log(err)
+        console.log("Erro de Authenticação", err)
     }
 }
 

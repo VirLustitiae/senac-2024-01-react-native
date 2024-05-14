@@ -1,15 +1,30 @@
-import { useState } from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import { useContext, useState } from 'react'
+import { Text, View, StyleSheet, Button, Alert, ActivityIndicator } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler'
+import { AuthContext } from '../context/auth-context'
 import { login } from '../services/auth'
 
 export default function Login(){
     const [email, setEmail] = useState("")
     const [passwd, setPasswd] = useState("")
+    const [loading, setLoading] = useState(false)
+    const authCtx = useContext(AuthContext)
 
     const handleLogin = async () => {
-        const token = await login(email, passwd)
-        console.log(token)
+        try {
+            setLoading(true)
+            authCtx.signin(email, passwd)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    if(loading) {
+        return (
+            <View style={{flex:1, justifyContent: 'center', alignItems: "center"}}>
+                <ActivityIndicator size="large" />
+            </View>
+        )
     }
 
     return (
