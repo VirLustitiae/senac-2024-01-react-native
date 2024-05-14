@@ -63,4 +63,5 @@ Layout Agradável
 - MATHEUS GONÇALVES ZUVANOV, 
 - RÔMULO HENRIQUE FERREIRA GONÇALVES, 
 - ELISA CARDOSO DE MELLO PESSAMÍLIO
+- https://github.com/VirLustitiae/ProjectE-commerce
 
